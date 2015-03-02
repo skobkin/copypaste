@@ -41,9 +41,10 @@ class Copypaste
     private $description;
 
     /**
-     * @var integer
+     * @var Language
      *
-     * @ORM\Column(name="language", type="integer", nullable=false)
+     * @ORM\ManyToOne(targetEntity="Language")
+     * @ORM\JoinColumn(name="language_id", referencedColumnName="id")
      */
     private $language;
 
@@ -138,7 +139,7 @@ class Copypaste
     }
 
     /**
-     * Get codeComment
+     * Get code description
      *
      * @return string 
      */
@@ -240,7 +241,7 @@ class Copypaste
     }
 
     /**
-     * Set dateExp
+     * Set expiration date
      *
      * @param \DateTime $dateExpire
      * @return Paste
@@ -253,7 +254,7 @@ class Copypaste
     }
 
     /**
-     * Get dateExp
+     * Get expiration date
      *
      * @return \DateTime 
      */
