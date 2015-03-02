@@ -1,0 +1,4 @@
+services:
+#    skobkin_copy_paste.example:
+#        class: Skobkin\Bundle\CopyPasteBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
