@@ -5,17 +5,17 @@ namespace Skobkin\Bundle\CopyPasteBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Paste
+ * Copypaste
  *
  * @ORM\Table(
- *      name="paste",
+ *      name="copypastes",
  *      indexes={
- *          @ORM\Index(name="idx_expire", columns={"date_exp"})
+ *          @ORM\Index(name="idx_expire", columns={"date_expire"})
  *      }
  * )
  * @ORM\Entity
  */
-class Paste
+class Copypaste
 {
     /**
      * @var integer
@@ -29,49 +29,49 @@ class Paste
     /**
      * @var string
      *
-     * @ORM\Column(name="code", type="text", nullable=false)
+     * @ORM\Column(name="text", type="text", nullable=false)
      */
     private $text;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="code_comment", type="text", nullable=true)
+     * @ORM\Column(name="description", type="text", nullable=true)
      */
     private $description;
 
     /**
      * @var integer
      *
-     * @ORM\Column(name="lang", type="integer", nullable=false)
+     * @ORM\Column(name="language", type="integer", nullable=false)
      */
     private $language;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="filename", type="string", length=128, nullable=true)
+     * @ORM\Column(name="file_name", type="string", length=128, nullable=true)
      */
     private $fileName;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="name", type="string", length=48, nullable=true)
+     * @ORM\Column(name="author", type="string", length=48, nullable=true)
      */
     private $author;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_pub", type="datetime", nullable=false)
+     * @ORM\Column(name="date_publish", type="datetime", nullable=false)
      */
     private $datePublished;
 
     /**
      * @var \DateTime
      *
-     * @ORM\Column(name="date_exp", type="datetime", nullable=true)
+     * @ORM\Column(name="date_expire", type="datetime", nullable=true)
      */
     private $dateExpire;
 

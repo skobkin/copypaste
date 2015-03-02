@@ -5,18 +5,18 @@ namespace Skobkin\Bundle\CopyPasteBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Lang
+ * Language
  *
  * @ORM\Table(
- *      name="lang", 
+ *      name="languages", 
  *      indexes={
  *          @ORM\Index(name="idx_enabled", columns={"enabled"}),
- *          @ORM\Index(name="idx_file", columns={"file"})
+ *          @ORM\Index(name="idx_code", columns={"code"})
  *      }
  * )
  * @ORM\Entity
  */
-class Lang
+class Language
 {
     /**
      * @var integer
@@ -37,7 +37,7 @@ class Lang
     /**
      * @var string
      *
-     * @ORM\Column(name="file", type="string", length=24, nullable=false)
+     * @ORM\Column(name="code", type="string", length=24, nullable=false)
      */
     private $code;
 
