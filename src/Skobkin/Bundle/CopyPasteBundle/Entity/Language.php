@@ -7,13 +7,11 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Language
  *
- * @ORM\Table(
- *      name="languages", 
- *      indexes={
- *          @ORM\Index(name="idx_enabled", columns={"enabled"}),
- *          @ORM\Index(name="idx_code", columns={"code"})
- *      }
- * )
+ * @ORM\Table(name="languages", indexes={
+ *      @ORM\Index(name="idx_enabled", columns={"is_enabled"}),
+ *      @ORM\Index(name="idx_preferred", columns={"is_preferred"}),
+ *      @ORM\Index(name="idx_code", columns={"code"})
+ * })
  * @ORM\Entity
  */
 class Language
@@ -40,13 +38,20 @@ class Language
      * @ORM\Column(name="code", type="string", length=24, nullable=false)
      */
     private $code;
+    
+    /**
+     * @var boolean
+     * 
+     * @ORM\Column(name="is_preferred", type="boolean", nullable=false)
+     */
+    private $isPreferred = false;
 
     /**
      * @var boolean
      *
-     * @ORM\Column(name="enabled", type="boolean", nullable=false)
+     * @ORM\Column(name="is_enabled", type="boolean", nullable=false)
      */
-    private $enabled;
+    private $isEnabled;
 
 
 
@@ -58,6 +63,11 @@ class Language
     public function getId()
     {
         return $this->id;
+    }
+    
+    public function __toString()
+    {
+        return $this->name;
     }
 
     /**
@@ -86,7 +96,7 @@ class Language
     /**
      * Set code
      *
-     * @param string $file
+     * @param string $code
      * @return Lang
      */
     public function setCode($code)
@@ -107,35 +117,47 @@ class Language
     }
 
     /**
-     * Set enabled
+     * Set isEnabled
      *
-     * @param boolean $enabled
+     * @param boolean $isEnabled
      * @return Lang
      */
-    public function setEnabled($enabled)
+    public function setIsEnabled($isEnabled)
     {
-        $this->enabled = $enabled;
+        $this->isEnabled = $isEnabled;
 
         return $this;
     }
 
     /**
-     * Get enabled
+     * Get isEnabled
      *
      * @return boolean 
      */
-    public function getEnabled()
+    public function getIsEnabled()
     {
-        return $this->enabled;
+        return $this->isEnabled;
     }
     
     /**
-     * Check if language is enabled
+     * Get isPreferred
      * 
      * @return boolean
      */
-    public function isEnabled()
+    function getIsPreferred()
     {
-        return $this->enabled;
+        return $this->isPreferred;
+    }
+
+    /**
+     * Set isPreferred
+     * 
+     * @param boolean $isPreferred
+     */
+    function setIsPreferred($isPreferred)
+    {
+        $this->isPreferred = $isPreferred;
+        
+        return $this;
     }
 }

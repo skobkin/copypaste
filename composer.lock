@@ -4,8 +4,110 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e36598c346f19a7d683f1c1f3d58399f",
+    "hash": "06492598a20c478faba66c1691e8490c",
     "packages": [
+        {
+            "name": "braincrafted/bootstrap-bundle",
+            "version": "dev-master",
+            "target-dir": "Braincrafted/Bundle/BootstrapBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/braincrafted/bootstrap-bundle.git",
+                "reference": "2dc17466f95a035869b51c845024f6a92bc1d6d1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/braincrafted/bootstrap-bundle/zipball/2dc17466f95a035869b51c845024f6a92bc1d6d1",
+                "reference": "2dc17466f95a035869b51c845024f6a92bc1d6d1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3",
+                "symfony/console": "~2.3",
+                "symfony/finder": "~2.3",
+                "symfony/form": "~2.3",
+                "symfony/framework-bundle": "~2.3",
+                "symfony/twig-bundle": "~2.3"
+            },
+            "require-dev": {
+                "knplabs/knp-menu": "~2.0@alpha",
+                "knplabs/knp-menu-bundle": "~2.0@alpha",
+                "knplabs/knp-paginator-bundle": "dev-master",
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "3.7.*",
+                "symfony/assetic-bundle": "~2.3"
+            },
+            "suggest": {
+                "knplabs/knp-menu": "Required to use KnpMenuBundle.",
+                "knplabs/knp-menu-bundle": "BraincraftedBootstrapBundle styles the menus provided by KnpMenuBundle.",
+                "knplabs/knp-paginator-bundle": "BraincraftedBootstrapBundle styles the pagination provided by KnpPaginatorBundle.",
+                "twbs/bootstrap": "Twitter Bootstrap provides the assets (images, CSS and JS)"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Braincrafted\\Bundle\\BootstrapBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Florian Eckerstorfer",
+                    "email": "florian@eckerstorfer.co",
+                    "homepage": "http://florian.ec"
+                }
+            ],
+            "description": "BraincraftedBootstrapBundle integrates Bootstrap into Symfony2 by providing templates, Twig extensions, services and commands.",
+            "keywords": [
+                "bootstrap"
+            ],
+            "time": "2015-01-31 10:32:31"
+        },
+        {
+            "name": "components/jquery",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/components/jquery.git",
+                "reference": "f8edb647d1833fd5d57410ab70860f03534cb2e8"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/components/jquery/zipball/f8edb647d1833fd5d57410ab70860f03534cb2e8",
+                "reference": "f8edb647d1833fd5d57410ab70860f03534cb2e8",
+                "shasum": ""
+            },
+            "type": "component",
+            "extra": {
+                "component": {
+                    "scripts": [
+                        "jquery.js"
+                    ],
+                    "files": [
+                        "jquery.min.js",
+                        "jquery.min.map",
+                        "jquery-migrate.js",
+                        "jquery-migrate.min.js"
+                    ]
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "John Resig",
+                    "email": "jeresig@gmail.com"
+                }
+            ],
+            "description": "jQuery JavaScript Library",
+            "homepage": "http://jquery.com",
+            "time": "2014-12-23 06:48:45"
+        },
         {
             "name": "doctrine/annotations",
             "version": "v1.2.3",
@@ -816,12 +918,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/doctrine/migrations.git",
-                "reference": "058a4635ac9b80a5b1997df28a754e64b1425a1d"
+                "reference": "312fb5939d5b9dbd66e515374533933e7c5cc8a6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/doctrine/migrations/zipball/058a4635ac9b80a5b1997df28a754e64b1425a1d",
-                "reference": "058a4635ac9b80a5b1997df28a754e64b1425a1d",
+                "url": "https://api.github.com/repos/doctrine/migrations/zipball/312fb5939d5b9dbd66e515374533933e7c5cc8a6",
+                "reference": "312fb5939d5b9dbd66e515374533933e7c5cc8a6",
                 "shasum": ""
             },
             "require": {
@@ -866,7 +968,7 @@
                 "database",
                 "migrations"
             ],
-            "time": "2015-02-19 08:13:05"
+            "time": "2015-03-02 18:28:52"
         },
         {
             "name": "doctrine/orm",
@@ -1626,12 +1728,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "755ea09a440c1b8ea560e403b442fc9f53e0ae93"
+                "reference": "12cf04f8f341573a146cdc32722f72ae2deb0579"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/755ea09a440c1b8ea560e403b442fc9f53e0ae93",
-                "reference": "755ea09a440c1b8ea560e403b442fc9f53e0ae93",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/12cf04f8f341573a146cdc32722f72ae2deb0579",
+                "reference": "12cf04f8f341573a146cdc32722f72ae2deb0579",
                 "shasum": ""
             },
             "require": {
@@ -1735,7 +1837,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-03-02 10:21:01"
+            "time": "2015-03-03 08:32:45"
         },
         {
             "name": "theodordiaconu/geshi",
@@ -1816,6 +1918,57 @@
                 "syntax highlight"
             ],
             "time": "2013-03-29 12:54:06"
+        },
+        {
+            "name": "twbs/bootstrap",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twbs/bootstrap.git",
+                "reference": "ddd09f6fe773c4a99929c169b80882ed955a6227"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twbs/bootstrap/zipball/ddd09f6fe773c4a99929c169b80882ed955a6227",
+                "reference": "ddd09f6fe773c4a99929c169b80882ed955a6227",
+                "shasum": ""
+            },
+            "replace": {
+                "twitter/bootstrap": "self.version"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.3.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Jacob Thornton",
+                    "email": "jacobthornton@gmail.com"
+                },
+                {
+                    "name": "Mark Otto",
+                    "email": "markdotto@gmail.com"
+                }
+            ],
+            "description": "The most popular front-end framework for developing responsive, mobile first projects on the web.",
+            "homepage": "http://getbootstrap.com",
+            "keywords": [
+                "JS",
+                "css",
+                "framework",
+                "front-end",
+                "less",
+                "mobile-first",
+                "responsive",
+                "web"
+            ],
+            "time": "2015-03-03 06:03:42"
         },
         {
             "name": "twig/extensions",
@@ -1984,7 +2137,10 @@
         "doctrine/migrations": 20,
         "doctrine/doctrine-migrations-bundle": 20,
         "theodordiaconu/geshi": 20,
-        "theodordiaconu/geshi-bundle": 20
+        "theodordiaconu/geshi-bundle": 20,
+        "braincrafted/bootstrap-bundle": 20,
+        "twbs/bootstrap": 20,
+        "components/jquery": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

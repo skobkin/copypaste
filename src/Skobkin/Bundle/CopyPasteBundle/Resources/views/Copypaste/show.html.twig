@@ -1,0 +1,76 @@
+{% extends '::base.html.twig' %}
+
+{% block content %}
+    <div class="paste container-fluid">
+        <div class="row">
+            <div class="col-md-2 col-xs-6">
+                {% if paste.author %}
+                    <span class="glyphicon glyphicon-user"></span> {{ paste.author }}
+                {% else %}
+                    <span class="glyphicon glyphicon-user"></span> anonymous
+                {% endif %}
+            </div>
+            <div class="col-md-2 col-xs-6"><span class="glyphicon glyphicon-font"></span> {{ paste.language }}</div>
+            <div class="col-md-2 col-xs-6"><span class="glyphicon glyphicon-plus"></span> {{ paste.datePublished | date('Y.m.d H:i') }}</div>
+            <div class="col-md-2 col-xs-6">
+                {% if paste.dateExpire %}
+                    <span class="glyphicon glyphicon-remove"></span> {{ paste.dateExpire | date('Y.m.d H:i') }}
+                {% endif %}
+            </div>
+            <div class="col-md-2 col-xs-6">
+                <span class="glyphicon glyphicon-qrcode"></span> 
+                <a href="#" id="paste-qr-code" data-toggle="popover" data-qr-url="http://chart.apis.google.com/chart?cht=qr&chs=150x150&chl={{ 
+                    path(app.request.attributes.get('_route'), app.request.attributes.get('_route_params')) | url_encode()
+                }}">{{ 'paste_show_qr_show' | trans() }}</a>
+            </div>
+            <div class="col-md-2 col-xs-6">
+                <a href="#">
+                    <span class="glyphicon glyphicon-download-alt"></span> {{ 'paste_show_download' | trans() }}
+                </a>
+            </div>
+        </div>
+        {% if paste.description %}
+        <div class="paste-description row">
+            <div class="col-md-12">
+                <div class="paste-description-content well well-sm">
+                    {{ paste.description | nl2br }}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        <div class="paste-main row">
+            <div class="col-md-12" role="tabpanel">
+                <div class="paste-tabs" role="tabpanel">
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs nav-justified" role="tablist">
+                        <li role="presentation" class="active">
+                            <a href="#tab-paste-view" aria-controls="home" role="tab" data-toggle="tab">
+                                <span class="glyphicon {% if paste.isPrivate %}glyphicon-eye-close{% else %}glyphicon-eye-open{% endif %}"></span>
+                                {{ 'paste_view_tab_view' | trans() }}
+                            </a>
+                        </li>
+                        <li role="presentation">
+                            <a href="#tab-paste-edit" aria-controls="profile" role="tab" data-toggle="tab">
+                                <span class="glyphicon glyphicon-edit"></span>
+                                {{ 'paste_view_tab_edit' | trans() }}
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="tab-paste-view">
+                            <div class="paste-text-content">
+                                {{ highlighted_text | raw }}
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="tab-paste-edit">
+                            {# This form recieves form_create object from current context #}
+                            {% include 'SkobkinCopyPasteBundle:Form:form_paste_create.html.twig' %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

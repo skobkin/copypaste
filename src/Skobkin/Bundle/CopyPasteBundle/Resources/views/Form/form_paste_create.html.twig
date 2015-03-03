@@ -1,0 +1,42 @@
+<div class="paste-form-create">
+    {{ form_start(form_create) }}
+        <div class="container-fluid">
+            <div class="editor-head row">
+                <div class="form-group col-md-4">
+                    {{ form_row(form_create.author) }}
+                </div>
+                <div class="form-group col-md-3">
+                    {{ form_row(form_create.language) }}
+                </div>
+                <div class="form-group col-md-3">
+                    {{ form_row(form_create.expire) }}
+                    {{ form_row(form_create.private) }}
+                </div>
+                <div class="form-group col-md-2 form-inline">
+                    <div class="inline">
+                        {{ form_widget(form_create.submit) }}
+                    </div>
+                </div>
+            </div>
+            <div class="editor-text row">
+                <div class="form-group col-md-12">
+                    {{ form_label(form_create.text) }}
+                    {{ form_errors(form_create.text) }}
+                    {{ form_widget(form_create.text, {'attr': {'rows': 10}}) }}
+                </div>
+            </div>
+            <div class="editor-head row">
+                <div class="form-group col-md-4">
+                    {{ form_row(form_create.fileName) }}
+                </div>
+            </div>
+            <div class="editor-description row">
+                <div class="form-group col-md-12">
+                    {{ form_label(form_create.description) }}
+                    {{ form_errors(form_create.description) }}
+                    {{ form_widget(form_create.description) }}
+                </div>
+            </div>
+        </div>
+    {{ form_end(form_create) }}
+</div>

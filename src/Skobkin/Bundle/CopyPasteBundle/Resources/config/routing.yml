@@ -1,1 +1,3 @@
-
+skobkin_copy_paste:
+    resource: "@SkobkinCopyPasteBundle/Resources/config/routing/copypaste.yml"
+    prefix:   /

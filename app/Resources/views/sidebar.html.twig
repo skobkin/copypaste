@@ -1,0 +1,12 @@
+<div>
+    <div class="panel panel-default">
+        <div class="panel-heading">{{ 'sidebar_title' | trans() }}</div>
+        <ul class="list-group">
+            {% for paste in pastes %}
+                <a href="{{ path('copypaste_show_public', {'id': paste.id}) }}" class="list-group-item">
+                    #{{ paste.id }}&nbsp;-&nbsp;{% if paste.author %}{{ paste.author }}{% else %}anonymous{% endif %}
+                </a>
+            {% endfor %}
+        </ul>
+    </div>
+</div>

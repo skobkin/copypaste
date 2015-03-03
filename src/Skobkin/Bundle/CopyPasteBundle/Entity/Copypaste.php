@@ -3,17 +3,16 @@
 namespace Skobkin\Bundle\CopyPasteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Copypaste
  *
- * @ORM\Table(
- *      name="copypastes",
- *      indexes={
- *          @ORM\Index(name="idx_expire", columns={"date_expire"})
- *      }
- * )
+ * @ORM\Table(name="copypastes", indexes={
+ *      @ORM\Index(name="idx_expire", columns={"date_expire"})
+ * })
  * @ORM\Entity
+ * @ORM\HasLifecycleCallbacks()
  */
 class Copypaste
 {
@@ -38,7 +37,7 @@ class Copypaste
      *
      * @ORM\Column(name="description", type="text", nullable=true)
      */
-    private $description;
+    private $description = null;
 
     /**
      * @var Language
@@ -53,14 +52,14 @@ class Copypaste
      *
      * @ORM\Column(name="file_name", type="string", length=128, nullable=true)
      */
-    private $fileName;
+    private $fileName = null;
 
     /**
      * @var string
      *
      * @ORM\Column(name="author", type="string", length=48, nullable=true)
      */
-    private $author;
+    private $author = null;
 
     /**
      * @var \DateTime
@@ -74,11 +73,12 @@ class Copypaste
      *
      * @ORM\Column(name="date_expire", type="datetime", nullable=true)
      */
-    private $dateExpire;
+    private $dateExpire = null;
 
     /**
      * @var string
      *
+     * @Assert\Ip
      * @ORM\Column(name="ip", type="string", length=48, nullable=false)
      */
     private $ip;
@@ -88,9 +88,15 @@ class Copypaste
      *
      * @ORM\Column(name="secret", type="string", length=16, nullable=true)
      */
-    private $secret;
+    private $secret = null;
 
-
+    /**
+     * @ORM\PrePersist
+     */
+    public function prePersist()
+    {
+        $this->datePublished = new \DateTime();
+    }
 
     /**
      * Get id
@@ -98,6 +104,11 @@ class Copypaste
      * @return integer 
      */
     public function getId()
+    {
+        return $this->id;
+    }
+    
+    public function __toString()
     {
         return $this->id;
     }
