@@ -33,6 +33,7 @@ class DropExpiredCopypastesCommand extends ContainerAwareCommand
         $queryBuilder = $em->createQueryBuilder()
             ->delete('SkobkinCopyPasteBundle:Copypaste c')
             ->where('c.dateExpire < :now')
+            ->andWhere('c.dateExpire IS NOT NULL')
             ->setParameter('now', new \DateTime());
         $queryBuilder->getQuery()->execute();
 
