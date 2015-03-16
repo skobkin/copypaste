@@ -1,0 +1,21 @@
+copypaste_show_public:
+    path:     /{id}
+    defaults: { _controller: "SkobkinCopyPasteBundle:Copypaste:show", secret: null }
+    requirements:
+        id:  \d+
+        
+copypaste_show_private:
+    path:     /{id}/{secret}
+    defaults: { _controller: "SkobkinCopyPasteBundle:Copypaste:show" }
+    requirements:
+        id:  \d+
+        secret: \w{16}
+
+copypaste_new:
+    path:     /
+    defaults: { _controller: "SkobkinCopyPasteBundle:Copypaste:new" }
+
+copypaste_create:
+    path:     /create
+    defaults: { _controller: "SkobkinCopyPasteBundle:Copypaste:create" }
+    methods:  POST

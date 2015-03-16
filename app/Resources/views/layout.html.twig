@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {%- block head -%}
+        <title>{% block title %}CopyPaste{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" href="{{ asset('bundles/skobkincopypaste/images/favicon.ico') }}">
+        {%- block css -%}
+        <link href="{{ asset('bootstrap/css/bootstrap.css') }}" rel="stylesheet" media="screen">
+        {%- endblock -%}
+        {# HTML5 Shim and Respond.js add IE8 support of HTML5 elements and media queries #}
+        {% include 'BraincraftedBootstrapBundle::ie8-support.html.twig' %}
+        {%- endblock -%}
+    </head>
+    <body>
+        {% block body %}
+            <div class="container-fluid">
+                {% block containter %}
+                    <div class="row">
+                        {% block header %}{% endblock %}
+                    </div>
+                    
+                    <div class="row">
+                        <div class="col-lg-2 col-md-2 col-xs-0">
+                            {% block sidebar %}{% endblock %}
+                        </div>
+                        <div class="col-lg-10 col-md-10 col-xs-12">
+                            {% block content %}{% endblock %}
+                        </div>
+                    </div>
+        
+                    <div class="row">
+                        {% block footer %}{% endblock %}
+                    </div>
+                {% endblock %}
+            </div>
+            
+            {% block javascript %}
+                <script src="{{ asset('bootstrap/js/jquery.js') }}"></script>
+                {# Include all JavaScripts, compiled by Assetic #}
+                <script src="{{ asset('bootstrap/js/bootstrap.js') }}"></script>
+            {% endblock %}
+        {% endblock %}
+    </body>
+</html>

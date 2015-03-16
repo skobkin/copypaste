@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="header_title">
+                <source>header_title</source>
+                <target>CopyPaste</target>
+            </trans-unit>
+            <trans-unit id="sidebar_title">
+                <source>sidebar_title</source>
+                <target>Последние</target>
+            </trans-unit>
+            <trans-unit id="header_menu_add">
+                <source>header_menu_add</source>
+                <target>Добавить</target>
+            </trans-unit>
+            <trans-unit id="header_menu_about">
+                <source>header_menu_about</source>
+                <target>О сервисе</target>
+            </trans-unit>
+            <trans-unit id="header_menu_api">
+                <source>header_menu_api</source>
+                <target>API</target>
+            </trans-unit>
+            <trans-unit id="paste_add_form_text">
+                <source>paste_add_form_text</source>
+                <target>Текст</target>
+            </trans-unit>
+            <trans-unit id="paste_add_form_description">
+                <source>paste_add_form_description</source>
+                <target>Описание</target>
+            </trans-unit>
+            <trans-unit id="paste_add_form_file_name">
+                <source>paste_add_form_file_name</source>
+                <target>Имя файла</target>
+            </trans-unit>
+            <trans-unit id="paste_add_form_author">
+                <source>paste_add_form_author</source>
+                <target>Автор</target>
+            </trans-unit>
+            <trans-unit id="paste_add_form_expire">
+                <source>paste_add_form_expire</source>
+                <target>Удалить через</target>
+            </trans-unit>
+            <trans-unit id="paste_add_form_private">
+                <source>paste_add_form_private</source>
+                <target>Секретно</target>
+            </trans-unit>
+            <trans-unit id="paste_add_form_language">
+                <source>paste_add_form_language</source>
+                <target>Язык</target>
+            </trans-unit>
+            <trans-unit id="paste_add_form_create">
+                <source>Create</source>
+                <target>Создать</target>
+            </trans-unit>
+            <trans-unit id="paste_view_tab_view">
+                <source>paste_view_tab_view</source>
+                <target>Просмотр</target>
+            </trans-unit>
+            <trans-unit id="paste_view_tab_edit">
+                <source>paste_view_tab_edit</source>
+                <target>Правка</target>
+            </trans-unit>
+            <trans-unit id="paste_show_qr_show">
+                <source>paste_show_qr_show</source>
+                <target>Показать QR</target>
+            </trans-unit>
+            <trans-unit id="paste_show_download">
+                <source>paste_show_download</source>
+                <target>Скачать</target>
+            </trans-unit>
+            <trans-unit id="paste_new_expire_5_minutes">
+                <source>5 minutes</source>
+                <target>5 минут</target>
+            </trans-unit>
+            <trans-unit id="paste_new_expire_1_hour">
+                <source>1 hour</source>
+                <target>1 час</target>
+            </trans-unit>
+            <trans-unit id="paste_new_expire_3_hours">
+                <source>3 hours</source>
+                <target>3 часа</target>
+            </trans-unit>
+            <trans-unit id="paste_new_expire_12_hours">
+                <source>12 hours</source>
+                <target>12 часов</target>
+            </trans-unit>
+            <trans-unit id="paste_new_expire_1_day">
+                <source>1 day</source>
+                <target>1 день</target>
+            </trans-unit>
+            <trans-unit id="paste_new_expire_1_week">
+                <source>1 week</source>
+                <target>1 неделя</target>
+            </trans-unit>
+            <trans-unit id="paste_new_expire_1_month">
+                <source>1 month</source>
+                <target>1 месяц</target>
+            </trans-unit>
+            <trans-unit id="paste_new_expire_3_months">
+                <source>3 months</source>
+                <target>3 месяца</target>
+            </trans-unit>
+            <trans-unit id="paste_new_expire_6_month">
+                <source>6 months</source>
+                <target>6 месяцев</target>
+            </trans-unit>
+            <trans-unit id="paste_new_expire_1_year">
+                <source>1 year</source>
+                <target>1 год</target>
+            </trans-unit>
+            <trans-unit id="paste_new_expire_never">
+                <source>Never</source>
+                <target>Никогда</target>
+            </trans-unit>
+        </body>
+    </file>
+</xliff>
