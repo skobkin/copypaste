@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "afd173c98886e151c9bdd8b8e9fe6ea2",
-    "content-hash": "8a8693220ed1993aefa0c00bab3f3e1a",
+    "hash": "2286e80d67065c2a2d2d6ded281d7856",
+    "content-hash": "85908f5bb94b02d643b50978f064ca6e",
     "packages": [
         {
             "name": "braincrafted/bootstrap-bundle",
@@ -1728,16 +1728,16 @@
         },
         {
             "name": "symfony/symfony",
-            "version": "2.7.x-dev",
+            "version": "v2.7.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/symfony.git",
-                "reference": "2aeaa22e3171b5e1f10f2cc2a7ff7f6608b65f9d"
+                "reference": "a9af4708b4bb650c4897e9b8dfbfbdb2ea5f0486"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/symfony/zipball/d1f50c5deecd6830ca30062e21b32c722272ca62",
-                "reference": "2aeaa22e3171b5e1f10f2cc2a7ff7f6608b65f9d",
+                "url": "https://api.github.com/repos/symfony/symfony/zipball/a9af4708b4bb650c4897e9b8dfbfbdb2ea5f0486",
+                "reference": "a9af4708b4bb650c4897e9b8dfbfbdb2ea5f0486",
                 "shasum": ""
             },
             "require": {
@@ -1846,7 +1846,7 @@
             "keywords": [
                 "framework"
             ],
-            "time": "2015-05-25 07:45:54"
+            "time": "2015-07-31 13:24:45"
         },
         {
             "name": "theodordiaconu/geshi",
@@ -2142,7 +2142,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "symfony/symfony": 20,
         "theodordiaconu/geshi": 20,
         "theodordiaconu/geshi-bundle": 20,
         "braincrafted/bootstrap-bundle": 20,
