@@ -30,6 +30,12 @@ class CopypasteController extends Controller
         $form->handleRequest($request);
 
         if ($form->isValid()) {
+            // Check "captcha"
+            // @todo check internally in transformation or somewhere else
+            if (null === $form->get('captcha')->getData()) {
+                throw $this->createNotFoundException('This isn\'t the service you\'re spamming to.');
+            }
+
             $em = $this->getDoctrine()->getManager();
             
             if ($form->get('private')->getData()) {
@@ -57,7 +63,7 @@ class CopypasteController extends Controller
             }          
         }
 
-        throw new $this->createAccessDeniedException('Sorry :(');
+        throw $this->createAccessDeniedException('Sorry :(');
     }
 
     /**

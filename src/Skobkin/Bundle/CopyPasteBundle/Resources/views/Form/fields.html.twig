@@ -1,0 +1,16 @@
+{% block skobkin_fake_captcha_widget %}
+    {% spaceless %}
+        <div id="{{ form.vars.id }}"></div>
+        <script type="text/javascript">
+            (function () {
+                div = document.getElementById('{{ form.vars.id }}');
+                input = document.createElement('input');
+                input.setAttribute('type', 'hidden');
+                input.setAttribute('name', '{{ form.vars.full_name }}');
+                input.setAttribute('value', 'dumb_text');
+                div.appendChild(input);
+                console.log(div);
+            })();
+        </script>
+    {% endspaceless %}
+{% endblock %}

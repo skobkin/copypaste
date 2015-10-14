@@ -66,6 +66,10 @@ class CopypasteType extends AbstractType
                     },
                     //'preferred_choices' => []
             ])
+            ->add('captcha', 'skobkin_fake_captcha', [
+                'mapped' => false,
+                'required' => true,
+            ])
             ->add('actions', 'form_actions')
         ;
     }

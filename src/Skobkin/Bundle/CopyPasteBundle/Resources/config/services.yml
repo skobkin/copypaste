@@ -1,4 +1,5 @@
 services:
-#    skobkin_copy_paste.example:
-#        class: Skobkin\Bundle\CopyPasteBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    copypaste.form.type.fake_captcha:
+        class: Skobkin\Bundle\CopyPasteBundle\Form\FakeCaptchaType
+        tags:
+            - { name: form.type, alias: skobkin_fake_captcha }
