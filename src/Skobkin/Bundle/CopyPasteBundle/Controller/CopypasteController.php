@@ -2,6 +2,7 @@
 
 namespace Skobkin\Bundle\CopyPasteBundle\Controller;
 
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -75,12 +76,12 @@ class CopypasteController extends Controller
      */
     private function createCreateForm(Copypaste $entity)
     {
-        $form = $this->createForm(new CopypasteType(), $entity, [
+        $form = $this->createForm(CopypasteType::class, $entity, [
             'action' => $this->generateUrl('copypaste_create'),
             'method' => 'POST',
         ]);
 
-        $form->add('submit', 'submit', array('label' => 'Create'));
+        $form->add('submit', SubmitType::class, ['label' => 'Create']);
 
         return $form;
     }

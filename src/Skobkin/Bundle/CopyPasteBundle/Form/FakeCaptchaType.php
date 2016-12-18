@@ -24,9 +24,4 @@ class FakeCaptchaType extends AbstractType
     {
         return 'hidden';
     }
-
-    public function getName()
-    {
-        return 'skobkin_fake_captcha';
-    }
 }

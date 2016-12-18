@@ -2,8 +2,14 @@
 
 namespace Skobkin\Bundle\CopyPasteBundle\Form;
 
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\QueryBuilder;
@@ -17,43 +23,44 @@ class CopypasteType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('text', 'textarea', ['label' => 'paste_add_form_text'])
-            ->add('description', 'textarea', [
+            ->add('text', TextareaType::class, ['label' => 'paste_add_form_text'])
+            ->add('description', TextareaType::class, [
                 'label' => 'paste_add_form_description',
                 'required' => false,
             ])
-            ->add('fileName', 'text', [
+            ->add('fileName', TextType::class, [
                 'label' => 'paste_add_form_file_name',
                 'required' => false,
             ])
-            ->add('author', 'text', [
+            ->add('author', TextType::class, [
                 'label' => 'paste_add_form_author',
                 'required' => false,
             ])
-            ->add('expire', 'choice', [
+            ->add('expire', ChoiceType::class, [
                 'label' => 'paste_add_form_expire',
                 'mapped' => false,
+                'choices_as_values' => true,
                 // @todo move to config
                 'choices' => [
-                    300 => '5 minutes',
-                    3600 => '1 hour',
-                    10800 => '3 hours',
-                    43200 => '12 hours',
-                    86400 => '1 day',
-                    604800 => '1 week',
-                    2419200 => '1 month',
-                    7257600 => '3 months',
-                    14515200 => '6 months',
-                    29030400 => '1 year',
-                    0 => 'Never',
+                    '5 minutes'=> 300,
+                    '1 hour' => 3600,
+                    '3 hours' => 10800,
+                    '12 hours' => 43200,
+                    '1 day' => 86400,
+                    '1 week' => 604800,
+                    '1 month' => 2419200,
+                    '3 months' => 7257600,
+                    '6 months' => 14515200,
+                    '1 year' => 29030400,
+                    'Never' => 0,
                 ]
             ])
-            ->add('private', 'checkbox', [
+            ->add('private', CheckboxType::class, [
                 'label' => 'paste_add_form_private',
                 'required' => false, 
                 'mapped' => false
             ])
-            ->add('language', 'entity', [
+            ->add('language', EntityType::class, [
                     'label' => 'paste_add_form_language',
                     'class' => 'Skobkin\Bundle\CopyPasteBundle\Entity\Language',
                     'query_builder' => function (EntityRepository $repo) {
@@ -66,17 +73,17 @@ class CopypasteType extends AbstractType
                     },
                     //'preferred_choices' => []
             ])
-            ->add('captcha', 'skobkin_fake_captcha', [
+            ->add('captcha', FakeCaptchaType::class, [
                 'mapped' => false,
                 'required' => true,
             ])
         ;
     }
-    
+
     /**
-     * @param OptionsResolverInterface $resolver
+     * @param OptionsResolver $resolver
      */
-    public function setDefaultOptions(OptionsResolverInterface $resolver)
+    public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
             'data_class' => 'Skobkin\Bundle\CopyPasteBundle\Entity\Copypaste'
@@ -84,10 +91,12 @@ class CopypasteType extends AbstractType
     }
 
     /**
-     * @return string
+     * @return null|string
      */
-    public function getName()
+    public function getBlockPrefix()
     {
-        return 'skobkin_bundle_copypastebundle_copypaste';
+        return 'copypaste';
     }
+
+
 }
