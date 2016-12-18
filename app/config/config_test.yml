@@ -15,12 +15,6 @@ framework:
     profiler:
         collect: false
 
-assetic:
-    filters:
-        less:
-            node: "%test_nodejs_executable%"
-            node_paths: %test_nodejs_paths%
-
 web_profiler:
     toolbar: false
     intercept_redirects: false

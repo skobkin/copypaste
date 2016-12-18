@@ -22,13 +22,11 @@
         "doctrine/doctrine-fixtures-bundle": "2.2.*",
         "theodordiaconu/geshi": "dev-master",
         "theodordiaconu/geshi-bundle" : "dev-master",
-        "braincrafted/bootstrap-bundle": "dev-master",
-        "twbs/bootstrap": "3.3.*@dev",
-        "components/jquery": "dev-master",
         "doctrine/doctrine-migrations-bundle": "^1.0"
     },
     "require-dev": {
-        "sensio/generator-bundle": "~2.3"
+        "sensio/generator-bundle": "~2.3",
+        "phpunit/phpunit": "^5.7"
     },
     "scripts": {
         "post-root-package-install": [

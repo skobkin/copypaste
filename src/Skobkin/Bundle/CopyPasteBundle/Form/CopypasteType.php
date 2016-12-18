@@ -70,7 +70,6 @@ class CopypasteType extends AbstractType
                 'mapped' => false,
                 'required' => true,
             ])
-            ->add('actions', 'form_actions')
         ;
     }
     

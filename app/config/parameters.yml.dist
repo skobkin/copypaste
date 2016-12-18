@@ -19,7 +19,4 @@ parameters:
     # A secret key that's used to generate certain security-related tokens
     secret:            ThisTokenIsNotSoSecretChangeIt
 
-    # Other stuff
-    nodejs_executable: /usr/bin/node
-    nodejs_paths: [/usr/lib/node_modules/]
     
