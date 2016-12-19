@@ -30,6 +30,8 @@ class DropExpiredCopypastesCommand extends ContainerAwareCommand
         
         /* @var $em EntityManager */
         $em = $this->getContainer()->get('doctrine')->getManager();
+
+        // @todo move to repository
         $queryBuilder = $em->createQueryBuilder()
             ->delete('SkobkinCopyPasteBundle:Copypaste c')
             ->where('c.dateExpire < :now')

@@ -39,7 +39,6 @@ class CopypasteType extends AbstractType
             ->add('expire', ChoiceType::class, [
                 'label' => 'paste_add_form_expire',
                 'mapped' => false,
-                'choices_as_values' => true,
                 // @todo move to config
                 'choices' => [
                     '5 minutes'=> 300,

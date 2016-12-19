@@ -30,7 +30,7 @@ class CopypasteController extends Controller
         $form = $this->createCreateForm($paste);
         $form->handleRequest($request);
 
-        if ($form->isValid()) {
+        if ($form->isSubmitted() && $form->isValid()) {
             // Check "captcha"
             // @todo check internally in transformation or somewhere else
             if (null === $form->get('captcha')->getData()) {
