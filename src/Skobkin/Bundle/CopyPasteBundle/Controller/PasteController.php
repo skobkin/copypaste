@@ -2,6 +2,7 @@
 
 namespace Skobkin\Bundle\CopyPasteBundle\Controller;
 
+use DT\Bundle\GeshiBundle\Highlighter\HighlighterInterface;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -9,14 +10,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use \Symfony\Component\Form\Form;
 use Skobkin\Bundle\CopyPasteBundle\Entity\Copypaste;
 use Skobkin\Bundle\CopyPasteBundle\Form\CopypasteType;
-use DT\Bundle\GeshiBundle\Highlighter\GeshiHighlighter;
 use \GeSHi\GeSHi;
 
-/**
- * Copypaste controller.
- *
- */
-class CopypasteController extends Controller
+class PasteController extends Controller
 {
 
     /**
@@ -58,9 +54,9 @@ class CopypasteController extends Controller
             $em->flush();
             
             if ($paste->isPrivate()) {
-                return $this->redirect($this->generateUrl('copypaste_show_private', ['id' => $paste->getId(), 'secret' => $paste->getSecret()]));
+                return $this->redirect($this->generateUrl('paste_show_private', ['id' => $paste->getId(), 'secret' => $paste->getSecret()]));
             } else {
-                return $this->redirect($this->generateUrl('copypaste_show_public', ['id' => $paste->getId()]));
+                return $this->redirect($this->generateUrl('paste_show_public', ['id' => $paste->getId()]));
             }          
         }
 
@@ -77,7 +73,7 @@ class CopypasteController extends Controller
     private function createCreateForm(Copypaste $entity)
     {
         $form = $this->createForm(CopypasteType::class, $entity, [
-            'action' => $this->generateUrl('copypaste_create'),
+            'action' => $this->generateUrl('paste_create'),
             'method' => 'POST',
         ]);
 
@@ -96,7 +92,7 @@ class CopypasteController extends Controller
         $paste = new Copypaste();
         $createForm = $this->createCreateForm($paste);
 
-        return $this->render('SkobkinCopyPasteBundle:Copypaste:new.html.twig', [
+        return $this->render('Paste/new.html.twig', [
             'entity' => $paste,
             'form_create'   => $createForm->createView(),
         ]);
@@ -107,12 +103,12 @@ class CopypasteController extends Controller
      *
      * @return Response
      */
-    public function showAction($id, $secret)
+    public function showAction(int $id, ?string $secret, HighlighterInterface $highlighter)
     {
         $em = $this->getDoctrine()->getManager();
 
         /* @var $paste Copypaste */
-        $paste = $em->getRepository('SkobkinCopyPasteBundle:Copypaste')->findOneBy([
+        $paste = $em->getRepository(Copypaste::class)->findOneBy([
             'id' =>$id,
             'secret' => $secret
         ]);
@@ -123,15 +119,12 @@ class CopypasteController extends Controller
         
         $editForm = $this->createCreateForm($paste);
         
-        /* @var $highlighter GeshiHighlighter */
-        $highlighter = $this->get('dt_geshi.highlighter');
-        
         $highlightedCode = $highlighter->highlight($paste->getText(), $paste->getLanguage()->getCode(), function(GeSHi $geshi) {
             $geshi->set_header_type(GESHI_HEADER_PRE);
             $geshi->enable_line_numbers(GESHI_NO_LINE_NUMBERS);
         });
 
-        return $this->render('SkobkinCopyPasteBundle:Copypaste:show.html.twig', [
+        return $this->render('Paste/show.html.twig', [
             'paste' => $paste,
             'highlighted_text' => $highlightedCode,
             'form_create' => $editForm->createView(),
@@ -147,15 +140,13 @@ class CopypasteController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $pastes = $em->getRepository('SkobkinCopyPasteBundle:Copypaste')->findBy(
+        $pastes = $em->getRepository(Copypaste::class)->findBy(
             ['secret' => null],
             ['id' => 'DESC'],
             // @todo move to the config
             15
         );
 
-        return $this->render('::sidebar.html.twig', ['pastes' => $pastes]);
+        return $this->render('sidebar.html.twig', ['pastes' => $pastes]);
     }
-    
-    
 }

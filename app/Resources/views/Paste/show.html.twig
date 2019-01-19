@@ -1,4 +1,4 @@
-{% extends '::base.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block content %}
     <div class="paste container-fluid">
@@ -66,7 +66,7 @@
                         </div>
                         <div role="tabpanel" class="tab-pane" id="tab-paste-edit">
                             {# This form recieves form_create object from current context #}
-                            {% include 'SkobkinCopyPasteBundle:Form:form_paste_create.html.twig' %}
+                            {% include 'Form/form_paste_create.html.twig' %}
                         </div>
                     </div>
                 </div>

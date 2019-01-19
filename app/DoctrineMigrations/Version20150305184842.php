@@ -2,7 +2,7 @@
 
 namespace Application\Migrations;
 
-use Doctrine\DBAL\Migrations\AbstractMigration;
+use Doctrine\Migrations\AbstractMigration;
 use Doctrine\DBAL\Schema\Schema;
 
 /**
@@ -10,13 +10,13 @@ use Doctrine\DBAL\Schema\Schema;
  */
 class Version20150305184842 extends AbstractMigration
 {
-    public function up(Schema $schema)
+    public function up(Schema $schema): void
     {
         $this->addSql('UPDATE copypastes SET date_expire=NULL WHERE date_expire=\'0000-00-00 00:00:00\'');
 
     }
 
-    public function down(Schema $schema)
+    public function down(Schema $schema): void
     {
         $this->addSql('UPDATE copypastes SET date_expire=\'0000-00-00 00:00:00\' WHERE date_expire=NULL');
     }

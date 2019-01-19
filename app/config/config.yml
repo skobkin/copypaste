@@ -13,17 +13,21 @@ framework:
     form:            ~
     csrf_protection: ~
     validation:      { enable_annotations: true }
-    templating:
-        engines: ['twig']
-        #assets_version: SomeVersionScheme
-    default_locale:  "%locale%"
+    #serializer: { enable_annotations: true }
+    default_locale: '%locale%'
     trusted_hosts:   ~
-    trusted_proxies: ~
     session:
         # handler_id set to null will use default session handler from php.ini
         handler_id:  ~
     fragments:       ~
     http_method_override: true
+    assets: ~
+    php_errors:
+        log: true
+
+sensio_framework_extra:
+    router:
+        annotations: false
 
 # Twig Configuration
 twig:
@@ -31,7 +35,7 @@ twig:
     strict_variables: "%kernel.debug%"
     form_themes:
         - 'bootstrap_3_layout.html.twig'
-        - 'SkobkinCopyPasteBundle:Form:fields.html.twig'
+        - 'Form/fields.html.twig'
 
 # Doctrine Configuration
 doctrine:
@@ -60,10 +64,3 @@ doctrine_migrations:
     table_name: migration_versions
     name: Application Migrations
 
-# Swiftmailer Configuration
-swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
-    spool:     { type: memory }

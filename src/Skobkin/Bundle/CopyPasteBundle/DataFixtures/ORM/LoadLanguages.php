@@ -78,13 +78,13 @@ class LoadLanguages implements FixtureInterface, ContainerAwareInterface
         foreach ($finder as $file) {
             $output->writeln($file->getRelativePathname() . ' found. Parsing...');
             
-            include $geshiPath . DIRECTORY_SEPARATOR .$file->getRelativePathname();
+            include $geshiPath.DIRECTORY_SEPARATOR.$file->getRelativePathname();
             
             $language = new Language();
             $language
                 ->setName($language_data['LANG_NAME'])
                 ->setCode(basename($file->getRelativePathname(), '.php'))
-                ->setEnabled(true)
+                ->setIsEnabled(true)
             ;
             
             $output->write('---> "' . $language->getName() . '"');

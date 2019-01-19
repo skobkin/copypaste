@@ -5,8 +5,6 @@ namespace Skobkin\Bundle\CopyPasteBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Language
- *
  * @ORM\Table(name="languages", indexes={
  *      @ORM\Index(name="idx_enabled", columns={"is_enabled"}),
  *      @ORM\Index(name="idx_preferred", columns={"is_preferred"}),
@@ -53,14 +51,7 @@ class Language
      */
     private $isEnabled;
 
-
-
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
+    public function getId(): int
     {
         return $this->id;
     }
@@ -70,91 +61,48 @@ class Language
         return $this->name;
     }
 
-    /**
-     * Set name
-     *
-     * @param string $name
-     * @return Lang
-     */
-    public function setName($name)
+    public function setName(string $name): self
     {
         $this->name = $name;
 
         return $this;
     }
 
-    /**
-     * Get name
-     *
-     * @return string 
-     */
-    public function getName()
+    public function getName(): string
     {
         return $this->name;
     }
 
-    /**
-     * Set code
-     *
-     * @param string $code
-     * @return Lang
-     */
-    public function setCode($code)
+    public function setCode($code): self
     {
         $this->code = $code;
 
         return $this;
     }
 
-    /**
-     * Get code
-     *
-     * @return string 
-     */
-    public function getCode()
+    public function getCode(): string
     {
         return $this->code;
     }
 
-    /**
-     * Set isEnabled
-     *
-     * @param boolean $isEnabled
-     * @return Lang
-     */
-    public function setIsEnabled($isEnabled)
+    public function setIsEnabled($isEnabled): self
     {
         $this->isEnabled = $isEnabled;
 
         return $this;
     }
 
-    /**
-     * Get isEnabled
-     *
-     * @return boolean 
-     */
-    public function getIsEnabled()
+    public function getIsEnabled(): bool
     {
         return $this->isEnabled;
     }
-    
-    /**
-     * Get isPreferred
-     * 
-     * @return boolean
-     */
-    function getIsPreferred()
+
+    function getIsPreferred(): bool
     {
         return $this->isPreferred;
     }
 
-    /**
-     * Set isPreferred
-     * 
-     * @param boolean $isPreferred
-     */
-    function setIsPreferred($isPreferred)
+    function setIsPreferred(bool $isPreferred): self
     {
         $this->isPreferred = $isPreferred;
         

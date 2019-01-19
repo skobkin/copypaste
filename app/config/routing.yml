@@ -1,4 +1,21 @@
-skobkin_copy_paste:
-    resource: "@SkobkinCopyPasteBundle/Resources/config/routing.yml"
-    prefix:   /
+paste_show_public:
+    path:     /{id}
+    defaults: { _controller: 'Skobkin\Bundle\CopyPasteBundle\Controller\PasteController::showAction', secret: null }
+    requirements:
+        id:  \d+
 
+paste_show_private:
+    path:     /{id}/{secret}
+    defaults: { _controller: 'Skobkin\Bundle\CopyPasteBundle\Controller\PasteController::showAction' }
+    requirements:
+        id:  \d+
+        secret: \w{16}
+
+paste_new:
+    path:     /
+    defaults: { _controller: 'Skobkin\Bundle\CopyPasteBundle\Controller\PasteController::newAction' }
+
+paste_create:
+    path:     /create
+    defaults: { _controller: 'Skobkin\Bundle\CopyPasteBundle\Controller\PasteController::createAction' }
+    methods:  POST
