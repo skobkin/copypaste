@@ -22,6 +22,8 @@
         "theodordiaconu/geshi-bundle" : "dev-master",
         "doctrine/doctrine-migrations-bundle": "^2.0",
         "doctrine/annotations": "^1.3"
+    },"require-dev": {
+        "symfony/web-server-bundle": "^3.4"
     },
     "scripts": {
         "symfony-scripts": [
