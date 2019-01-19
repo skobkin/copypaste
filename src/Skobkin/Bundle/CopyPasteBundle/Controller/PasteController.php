@@ -12,11 +12,7 @@ use Skobkin\Bundle\CopyPasteBundle\Form\CopypasteType;
 use DT\Bundle\GeshiBundle\Highlighter\GeshiHighlighter;
 use \GeSHi\GeSHi;
 
-/**
- * Copypaste controller.
- *
- */
-class CopypasteController extends Controller
+class PasteController extends Controller
 {
 
     /**

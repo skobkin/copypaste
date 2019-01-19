@@ -1,21 +1,21 @@
 copypaste_show_public:
     path:     /{id}
-    defaults: { _controller: "SkobkinCopyPasteBundle:Copypaste:show", secret: null }
+    defaults: { _controller: 'Skobkin\Bundle\CopyPasteBundle\Controller\PasteController::showAction', secret: null }
     requirements:
         id:  \d+
         
 copypaste_show_private:
     path:     /{id}/{secret}
-    defaults: { _controller: "SkobkinCopyPasteBundle:Copypaste:show" }
+    defaults: { _controller: 'Skobkin\Bundle\CopyPasteBundle\Controller\PasteController::showAction' }
     requirements:
         id:  \d+
         secret: \w{16}
 
 copypaste_new:
     path:     /
-    defaults: { _controller: "SkobkinCopyPasteBundle:Copypaste:new" }
+    defaults: { _controller: 'Skobkin\Bundle\CopyPasteBundle\Controller\PasteController::newAction' }
 
 copypaste_create:
     path:     /create
-    defaults: { _controller: "SkobkinCopyPasteBundle:Copypaste:create" }
+    defaults: { _controller: 'Skobkin\Bundle\CopyPasteBundle\Controller\PasteController::createAction' }
     methods:  POST
