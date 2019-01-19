@@ -17,6 +17,7 @@ class AppKernel extends Kernel
             new Doctrine\Bundle\FixturesBundle\DoctrineFixturesBundle(),
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new DT\Bundle\GeshiBundle\DTGeshiBundle(),
+            new Sentry\SentryBundle\SentryBundle(),
             new Skobkin\Bundle\CopyPasteBundle\SkobkinCopyPasteBundle(),
         );
 
