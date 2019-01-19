@@ -29,6 +29,9 @@ sensio_framework_extra:
     router:
         annotations: false
 
+sentry:
+    dsn: '%sentry_dsn%'
+
 # Twig Configuration
 twig:
     debug:            "%kernel.debug%"
