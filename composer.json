@@ -16,7 +16,7 @@
         "doctrine/doctrine-migrations-bundle": "^2.0",
         "doctrine/orm": "^2.5",
         "incenteev/composer-parameter-handler": "^2.0",
-        "sensio/framework-extra-bundle": "^3.0.2",
+        "sensio/framework-extra-bundle": "^5",
         "sentry/sentry-symfony": "^2.2",
         "symfony/monolog-bundle": "^3.1",
         "symfony/symfony": "^3.4",
