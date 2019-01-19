@@ -1,4 +1,4 @@
-{% extends '::layout.html.twig' -%}
+{% extends 'layout.html.twig' -%}
 
 {%- block css -%}
     {{- parent() -}}
@@ -20,7 +20,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ path('copypaste_new') }}">{{ 'header_title' | trans }}</a>
+                <a class="navbar-brand" href="{{ path('paste_new') }}">{{ 'header_title' | trans }}</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -28,7 +28,7 @@
                 <ul class="nav navbar-nav">
                     {% block header_menu_left_items %}
                     <li{% if app.request.attributes.get('_route') == 'copypaste_new' %} class="active"{% endif %}>
-                        <a href="{{ path('copypaste_new') }}"><span class="glyphicon glyphicon-plus-sign"></span> {{ 'header_menu_add' | trans }}</a>
+                        <a href="{{ path('paste_new') }}"><span class="glyphicon glyphicon-plus-sign"></span> {{ 'header_menu_add' | trans }}</a>
                     </li>
                     <li>
                         <a href="{#{{ path('about') }}#}"><span class="glyphicon glyphicon-info-sign"></span> {{ 'header_menu_about' | trans }}</a>
@@ -46,7 +46,7 @@
 {%- endblock -%}
 
 {%- block sidebar -%}
-    {{ render(controller('SkobkinCopyPasteBundle:Paste:sidebar')) }}
+    {{ render(controller('Skobkin\\Bundle\\CopyPasteBundle\\Controller\\PasteController::sidebarAction')) }}
 {%- endblock -%}
 
 {% block content %}{% endblock %}
