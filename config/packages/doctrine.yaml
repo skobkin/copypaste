@@ -3,12 +3,8 @@ parameters:
 
 doctrine:
     dbal:
-        default_connection: default
-            connections:
-                default:
-                    driver: 'mysqli'
-                    url: '%env(resolve:DATABASE_URL)%'
-                    charset:  UTF8
-
+        driver: 'mysqli'
+        url: '%env(resolve:DATABASE_URL)%'
+        charset:  'UTF8'
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
