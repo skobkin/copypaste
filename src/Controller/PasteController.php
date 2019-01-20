@@ -2,20 +2,21 @@
 
 namespace App\Controller;
 
+use Doctrine\ORM\EntityManagerInterface;
 use DT\Bundle\GeshiBundle\Highlighter\HighlighterInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormInterface;
 use Symfony\Component\HttpFoundation\{Request, Response};
-use App\Entity\Copypaste;
-use App\Form\CopypasteType;
+use App\Entity\Paste;
+use App\Form\PasteType;
 use \GeSHi\GeSHi;
 
 class PasteController extends AbstractController
 {
     public function createAction(Request $request): Response
     {
-        $paste = new Copypaste();
+        $paste = new Paste();
         $form = $this->createCreateForm($paste);
         $form->handleRequest($request);
 
@@ -58,7 +59,7 @@ class PasteController extends AbstractController
 
     public function newAction(): Response
     {
-        $paste = new Copypaste();
+        $paste = new Paste();
         $createForm = $this->createCreateForm($paste);
 
         return $this->render('Paste/new.html.twig', [
@@ -67,12 +68,10 @@ class PasteController extends AbstractController
         ]);
     }
 
-    public function showAction(int $id, ?string $secret, HighlighterInterface $highlighter): Response
+    public function showAction(int $id, ?string $secret, EntityManagerInterface $em, HighlighterInterface $highlighter): Response
     {
-        $em = $this->getDoctrine()->getManager();
-
-        /* @var $paste \App\Entity\Copypaste */
-        $paste = $em->getRepository(Copypaste::class)->findOneBy([
+        /* @var $paste \App\Entity\Paste */
+        $paste = $em->getRepository(Paste::class)->findOneBy([
             'id' =>$id,
             'secret' => $secret
         ]);
@@ -99,7 +98,7 @@ class PasteController extends AbstractController
     {
         $em = $this->getDoctrine()->getManager();
 
-        $pastes = $em->getRepository(Copypaste::class)->findBy(
+        $pastes = $em->getRepository(Paste::class)->findBy(
             ['secret' => null],
             ['id' => 'DESC'],
             // @todo move to the config
@@ -109,9 +108,9 @@ class PasteController extends AbstractController
         return $this->render('sidebar.html.twig', ['pastes' => $pastes]);
     }
 
-    private function createCreateForm(Copypaste $entity): FormInterface
+    private function createCreateForm(Paste $entity): FormInterface
     {
-        $form = $this->createForm(CopypasteType::class, $entity, [
+        $form = $this->createForm(PasteType::class, $entity, [
             'action' => $this->generateUrl('paste_create'),
             'method' => 'POST',
         ]);

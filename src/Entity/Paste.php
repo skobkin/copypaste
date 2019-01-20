@@ -6,14 +6,12 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * Copypaste
- *
  * @ORM\Table(name="copypastes", indexes={
  *      @ORM\Index(name="idx_expire", columns={"date_expire"})
  * })
  * @ORM\Entity
  */
-class Copypaste
+class Paste
 {
     /**
      * @var integer
@@ -111,7 +109,7 @@ class Copypaste
         return $this;
     }
 
-    public function getText(): string
+    public function getText(): ?string
     {
         return $this->text;
     }
@@ -135,7 +133,7 @@ class Copypaste
         return $this;
     }
 
-    public function getLanguage(): Language
+    public function getLanguage(): ?Language
     {
         return $this->language;
     }

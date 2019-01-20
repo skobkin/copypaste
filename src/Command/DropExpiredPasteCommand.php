@@ -3,7 +3,7 @@
 namespace App\Command;
 
 use Doctrine\ORM\EntityManagerInterface;
-use App\Entity\Copypaste;
+use App\Entity\Paste;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -39,7 +39,7 @@ class DropExpiredPasteCommand extends Command
 
         // @todo move to repository
         $qb = $this->em->createQueryBuilder()
-            ->delete(Copypaste::class, 'c')
+            ->delete(Paste::class, 'c')
             ->where('c.dateExpire < :now')
             ->andWhere('c.dateExpire IS NOT NULL')
             ->setParameter('now', new \DateTime());

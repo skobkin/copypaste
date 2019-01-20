@@ -22,3 +22,7 @@ services:
     App\Controller\:
         resource: '../src/Controller'
         tags: ['controller.service_arguments']
+
+    # Overriding old bundle service definition
+    DT\Bundle\GeshiBundle\Highlighter\HighlighterInterface:
+        class: DT\Bundle\GeshiBundle\Highlighter\GeshiHighlighter

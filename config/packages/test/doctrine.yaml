@@ -1,6 +1,5 @@
-doctrine:
-    dbal:
-        dbname:   "%test_database_name%"
-        port:     "%test_database_port%"
-        user:     "%test_database_user%"
-        password: "%test_database_password%"
+#doctrine:
+#    dbal:
+#        driver: 'mysqli'
+#            url: '%env(resolve:DATABASE_URL)%'
+#            charset:  'UTF8'
