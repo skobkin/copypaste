@@ -1,0 +1,21 @@
+paste_show_public:
+    path:     /{id}
+    defaults: { _controller: 'App\Controller\PasteController::showAction', secret: null }
+    requirements:
+        id:  \d+
+
+paste_show_private:
+    path:     /{id}/{secret}
+    defaults: { _controller: 'App\Controller\PasteController::showAction' }
+    requirements:
+        id:  \d+
+        secret: \w{16}
+
+paste_new:
+    path:     /
+    defaults: { _controller: 'App\Controller\PasteController::newAction' }
+
+paste_create:
+    path:     /create
+    defaults: { _controller: 'App\Controller\PasteController::createAction' }
+    methods:  POST
