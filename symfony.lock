@@ -1,4 +1,16 @@
 {
+    "doctrine/data-fixtures": {
+        "version": "v1.3.1"
+    },
+    "doctrine/doctrine-fixtures-bundle": {
+        "version": "3.0",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.0",
+            "ref": "fc52d86631a6dfd9fdf3381d0b7e3df2069e51b3"
+        }
+    },
     "easycorp/easy-log-handler": {
         "version": "1.0",
         "recipe": {
@@ -7,6 +19,9 @@
             "version": "1.0",
             "ref": "70062abc2cd58794d2a90274502f81b55cd9951b"
         }
+    },
+    "monolog/monolog": {
+        "version": "1.24.0"
     },
     "symfony/cache": {
         "version": "v4.2.2"
@@ -92,11 +107,23 @@
     "symfony/monolog-bridge": {
         "version": "v4.2.2"
     },
+    "symfony/monolog-bundle": {
+        "version": "3.1",
+        "recipe": {
+            "repo": "github.com/symfony/recipes",
+            "branch": "master",
+            "version": "3.1",
+            "ref": "18ebf5a940573a20de06f9c4060101eeb438cf3d"
+        }
+    },
     "symfony/options-resolver": {
         "version": "v4.2.2"
     },
     "symfony/orm-pack": {
         "version": "v1.0.6"
+    },
+    "symfony/polyfill-php72": {
+        "version": "v1.10.0"
     },
     "symfony/process": {
         "version": "v4.2.2"

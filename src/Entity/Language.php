@@ -51,6 +51,13 @@ class Language
      */
     private $isEnabled;
 
+    public function __construct(string $name, string $code, bool $enabled = true)
+    {
+        $this->name = $name;
+        $this->code = $code;
+        $this->isEnabled = $enabled;
+    }
+
     public function getId(): int
     {
         return $this->id;

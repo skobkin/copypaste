@@ -17,18 +17,18 @@
     "require": {
         "php": ">=7.1.0",
         "doctrine/annotations": "^1.3",
-        "doctrine/doctrine-bundle": "^1.4",
         "doctrine/doctrine-migrations-bundle": "^2.0",
-        "doctrine/orm": "^2.5",
         "sensio/framework-extra-bundle": "^5.2",
         "sentry/sentry-symfony": "^2.2",
+        "symfony/console": "^4.2",
+        "symfony/finder": "^4.2",
         "symfony/flex": "^1.1",
         "symfony/form": "^4.2",
-        "symfony/monolog-bundle": "^3.3",
         "symfony/orm-pack": "^1.0",
         "symfony/security-bundle": "^4.2",
         "symfony/translation": "^4.2",
         "symfony/twig-bundle": "^4.2",
+        "symfony/yaml": "^4.2",
         "theodordiaconu/geshi": "dev-master",
         "theodordiaconu/geshi-bundle": "dev-master"
     },"require-dev": {

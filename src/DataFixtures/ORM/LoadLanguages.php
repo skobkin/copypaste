@@ -2,48 +2,28 @@
 
 namespace App\DataFixtures\ORM;
 
-use Doctrine\Common\DataFixtures\FixtureInterface;
+use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Persistence\ObjectManager;
-use Doctrine\ORM\Query;
-use Symfony\Component\DependencyInjection\ContainerAwareInterface;
-use Symfony\Component\DependencyInjection\ContainerInterface;
-use Symfony\Component\Console\Output\ConsoleOutput;
 use Symfony\Component\Finder\Finder;
-use Symfony\Component\Finder\SplFileInfo;
 use App\Entity\Language;
 
-/**
- * Description of LoadLanguages
- *
- * @author Alexey Skobkin
- */
-class LoadLanguages implements FixtureInterface, ContainerAwareInterface
+class LoadLanguages extends Fixture
 {
-    /**
-     * @var ContainerInterface
-     */
-    private $container;
-    
-    /**
-     * {@inheritDoc}
-     */
-    public function setContainer(ContainerInterface $container = null)
+    /** @var string */
+    private $projectDir;
+
+    public function __construct(string $projectDir)
     {
-        $this->container = $container;
+        $this->projectDir = $projectDir;
     }
-    
-    /**
-     * {@inheritDoc}
-     */
+
     public function load(ObjectManager $manager)
     {
-        $output = new ConsoleOutput();
-        
-        $geshiPath = $this->container->get('kernel')->getRootDir() . '/../vendor/theodordiaconu/geshi/src/GeSHi/geshi';
-        
+        $geshiPath =  $this->projectDir.'/vendor/theodordiaconu/geshi/src/GeSHi/geshi';
+
         $finder = new Finder();
         $finder->files()->in($geshiPath);
-        
+
         // Fix constants
         define('GESHI_CAPS_NO_CHANGE', true);
         define('GESHI_COMMENTS', true);
@@ -73,26 +53,19 @@ class LoadLanguages implements FixtureInterface, ContainerAwareInterface
         define('GESHI_CLASS', true);
         define('GESHI_NUMBER_OCT_PREFIX_0O', true);
         define('GESHI_NUMBER_OCT_PREFIX_AT', true);
-        
-        /* @var $file SplFileInfo */
+
+        /* @var $file \SplFileInfo */
         foreach ($finder as $file) {
-            $output->writeln($file->getRelativePathname() . ' found. Parsing...');
-            
             include $geshiPath.DIRECTORY_SEPARATOR.$file->getRelativePathname();
-            
-            $language = new Language();
-            $language
-                ->setName($language_data['LANG_NAME'])
-                ->setCode(basename($file->getRelativePathname(), '.php'))
-                ->setIsEnabled(true)
-            ;
-            
-            $output->write('---> "' . $language->getName() . '"');
+
+            $language = new Language(
+                $language_data['LANG_NAME'],
+                basename($file->getRelativePathname(), '.php')
+            );
+
             $manager->persist($language);
-            $manager->flush();
-            $output->writeln('   [ PERSISTED ]');
         }
-        
-        $output->writeln('Import finished!');
+
+        $manager->flush();
     }
 }
