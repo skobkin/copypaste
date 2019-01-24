@@ -1,0 +1,5 @@
+#doctrine:
+#    dbal:
+#        driver: 'mysqli'
+#            url: '%env(resolve:DATABASE_URL)%'
+#            charset:  'UTF8'

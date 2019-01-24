@@ -1,0 +1,18 @@
+parameters:
+    env(DATABASE_URL): ''
+
+doctrine:
+    dbal:
+        driver: 'mysqli'
+        url: '%env(resolve:DATABASE_URL)%'
+        charset:  'UTF8'
+    orm:
+        auto_generate_proxy_classes: "%kernel.debug%"
+        auto_mapping: true
+        mappings:
+            App\Entity:
+                type: annotation
+                dir: '%kernel.project_dir%/src/Entity'
+                is_bundle: false
+                prefix: App\Entity
+                alias: App

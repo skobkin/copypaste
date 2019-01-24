@@ -1,0 +1,10 @@
+# src/AppBundle/Resources/config/dataFixture.yml
+services:
+    _defaults:
+        tags: ['doctrine.fixture.orm']
+        autowire: true # if you need dependency injection, see next bullet point
+        bind:
+            $projectDir: '%kernel.project_dir%'
+
+    App\DataFixtures\ORM\:
+        resource: '%kernel.project_dir%/src/DataFixtures/ORM/*'

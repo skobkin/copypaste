@@ -1,0 +1,11 @@
+framework:
+    #esi:             ~
+    secret:          '%env(APP_SECRET)%'
+    trusted_hosts:   ~
+    session:
+        # handler_id set to null will use default session handler from php.ini
+        handler_id:  ~
+    fragments:       ~
+    http_method_override: true
+    php_errors:
+        log: true
