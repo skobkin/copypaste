@@ -1,9 +1,4 @@
 /.idea/
-/var/cache/*
-/var/log/*
-!/var/cache/.gitkeep
-!/var/log/.gitkeep
-/vendor/
 /.env
 ###> symfony/framework-bundle ###
 /.env.local
