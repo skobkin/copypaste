@@ -12,12 +12,12 @@ class Version20150305184842 extends AbstractMigration
 {
     public function up(Schema $schema): void
     {
-        $this->addSql('UPDATE copypastes SET date_expire=NULL WHERE date_expire=\'0000-00-00 00:00:00\'');
+        $this->addSql('UPDATE copypastes SET date_expire=NULL WHERE date_expire=\'2020-01-01 00:00:00\'');
 
     }
 
     public function down(Schema $schema): void
     {
-        $this->addSql('UPDATE copypastes SET date_expire=\'0000-00-00 00:00:00\' WHERE date_expire=NULL');
+        $this->addSql('UPDATE copypastes SET date_expire=\'2020-01-01 00:00:00\' WHERE date_expire=NULL');
     }
 }

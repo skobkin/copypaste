@@ -40,7 +40,7 @@ class Version20150302205121 extends AbstractMigration
                     `filename` varchar(128) CHARACTER SET utf8 NOT NULL COMMENT \'Filename\',
                     `name` varchar(48) CHARACTER SET utf8 NOT NULL COMMENT \'Author of quote name\',
                     `date_pub` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT \'Publish date\',
-                    `date_exp` timestamp NOT NULL DEFAULT \'0000-00-00 00:00:00\' COMMENT \'Expire date\',
+                    `date_exp` timestamp NOT NULL DEFAULT \'2020-01-01 00:00:00\' COMMENT \'Expire date\',
                     `ip` varchar(48) CHARACTER SET utf8 NOT NULL COMMENT \'IP\',
                     `secret` varchar(16) COLLATE utf8_unicode_ci NOT NULL COMMENT \'Paste secret\',
                     PRIMARY KEY (`id`),
